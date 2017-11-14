@@ -1,0 +1,33 @@
+<?php
+/**
+ * Created by balaji.j.b.
+ * User: jbbal
+ * Date: 14-11-2017
+ * Time: 08:17
+ */
+
+function bubble_Sort($array_values)
+{
+    do
+    {
+        $n= count($array_values) -1;
+        $swapped = false;
+        for( $i = 0; $i < $n; $i++ )
+        {
+            if( $array_values[$i] > $array_values[$i + 1] )
+            {
+                list( $array_values[$i + 1], $array_values[$i] ) =
+                    array( $array_values[$i], $array_values[$i + 1] );
+                $swapped = true;
+            }
+        }
+    }
+    while( $swapped );
+    return $array_values;
+}
+$sorted_array = array(5,3,4,9,1,1);
+echo "Original Array :\n";
+echo implode(', ',$sorted_array );
+echo "\nSorted Array\n:";
+echo implode(', ',bubble_Sort($sorted_array)). PHP_EOL;
+?>
